@@ -70,9 +70,7 @@ function highlightItems(){
 function sortItems(){
     let listAdd = document.getElementById("list");
     let para = listAdd.getElementsByTagName("p");
-    let checklist = listAdd.getElementsByTagName("input");
-    let sorted_list = document.getElementById("sorted_list");
-    
+    let lol = document.getElementById("sorted_list");
     console.log(para);
     console.log("Type^ \n");
     // Array.from(para).forEach(function(item){
@@ -80,23 +78,29 @@ function sortItems(){
     //     console.log(txt);
     // })
     let arr1 = Array.from(para);
-    for (let x = 0; x < arr2.length; x++) {
-        console.log(arr2[x].textContent)
+    let arr2 = [];
+    ln = arr1.length;
+    for (let i = 0; i < ln; i++){
+        let temp_min = arr1[0];
+        for (let x = 0; x < arr1.length; x++) {
+            if(temp_min.textContent.toLowerCase() > arr1[x].textContent.toLowerCase()){
+                temp_min = arr1[x];
+                console.log('test');
+            }   
+        }
+        arr2.push(temp_min);
+        for (let index = 0; index < arr1.length; index++) {
+            if (temp_min.textContent.toLowerCase() === arr1[index].textContent.toLowerCase()) {
+                arr1.splice(index, 1);
+            }
+        }
     }
+    for(let j = 0; j < arr2.length; j++){
+        lol.appendChild(arr2[j]);
+        // listAdd.removeChild(arr2[j]);
+    }
+    // console.log(arr2);
     // for (let i = 0; i < arrrr.length; i++){
     //     console.log(arrrr[i].textContent);
     // }
-}   
-    //     // if(sorted_list.length == 0){
-    //     //     sorted_list.appendChild(para[0])
-    //     // }
-    //     // else{
-    //     //     for (let j = 0; j < sorted_list.length; i++){
-    //     //         if(){
-
-    //     //         }
-    //     //     }
-    //     // }
-    // }
-    
-    // console.log(para[1]);
+}  
