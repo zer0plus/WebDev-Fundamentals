@@ -72,22 +72,22 @@ function sortItems(){
     let para = listAdd.getElementsByTagName("p");
     let checklist = listAdd.getElementsByTagName("input");
     let sorted_list = document.getElementById("sorted_list");
-    let temp = ""; 
     let tempV;
     let ln = para.length;
     let counter = 0;
     // console.log(checklist[0].value);
     while (counter != ln){
-        for (let i = 0; i < ln; i++){
+        console.log("temp");
+        let temp = "zzz";
+        for (let i = 0; i < para.length; i++){
             if(temp > checklist[i].value.toLowerCase){
                 console.log(temp);
-                console.log("temp");
                 temp = checklist[i].value.toLowerCase;
                 tempV = i;
             }
         }
         // add
-        for (let i = 0; i < ln; i++){
+        for (let i = 0; i < para.length; i++){
             if(temp === checklist[i].value.toLowerCase){
                 counter++;
                 sorted_list.appendChild(para[i]);
