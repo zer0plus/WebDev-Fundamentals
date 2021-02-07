@@ -67,5 +67,14 @@ function highlightItems(){
 }
 
 function sortItems(){
+    let listAdd = document.getElementById("list");
+    let para = listAdd.getElementsByTagName("p");
+    let checklist = listAdd.getElementsByTagName("input");
+    let sorted_list = document.getElementById("sorted_list");
+
+    for (let i = 0; i < para.length; i++){
+        para[i].
+    }
     
+    // console.log(para[1]);
 }
