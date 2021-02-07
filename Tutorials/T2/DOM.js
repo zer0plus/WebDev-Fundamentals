@@ -72,30 +72,21 @@ function sortItems(){
     let para = listAdd.getElementsByTagName("p");
     let checklist = listAdd.getElementsByTagName("input");
     let sorted_list = document.getElementById("sorted_list");
-    let tempV;
-    let ln = para.length;
-    let counter = 0;
-    // console.log(checklist[0].value);
-    while (counter != ln){
-        console.log("temp");
-        let temp = "zzz";
-        for (let i = 0; i < para.length; i++){
-            if(temp > checklist[i].value.toLowerCase){
-                console.log(temp);
-                temp = checklist[i].value.toLowerCase;
-                tempV = i;
-            }
-        }
-        // add
-        for (let i = 0; i < para.length; i++){
-            if(temp === checklist[i].value.toLowerCase){
-                counter++;
-                sorted_list.appendChild(para[i]);
-                listAdd.removeChild(para[i]);
-            }
-        }
+    
+    console.log(para);
+    console.log("Type^ \n");
+    // Array.from(para).forEach(function(item){
+    //     let txt = item.textContent;
+    //     console.log(txt);
+    // })
+    let arr1 = Array.from(para);
+    for (let x = 0; x < arr2.length; x++) {
+        console.log(arr2[x].textContent)
     }
-}
+    // for (let i = 0; i < arrrr.length; i++){
+    //     console.log(arrrr[i].textContent);
+    // }
+}   
     //     // if(sorted_list.length == 0){
     //     //     sorted_list.appendChild(para[0])
     //     // }

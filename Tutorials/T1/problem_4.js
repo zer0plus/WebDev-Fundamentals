@@ -37,14 +37,14 @@ let student_names = students.map((stdns) => {
 let smarties = students 
 	.filter(smart_students => smart_students.egrade >= 80)
 	.map(smart_students => (smart_students.fname + ' ' + smart_students.lname));
-// console.log(smarties);
+//console.log(smarties);
 
 //Part 3
 let avg_grade = students
 	.reduce((total, student) => {
 		return (total + ((student.egrade * 0.5) + (student.tgrade * 0.1) + (student.agrade * 0.4)));
 	}, 0)/(student_names.length); 
-// console.log(avg_grade)
+//console.log(avg_grade)
 
 
 
