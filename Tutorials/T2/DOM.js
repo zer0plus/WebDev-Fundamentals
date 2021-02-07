@@ -11,9 +11,10 @@ function addToList(){
     if(input.value.length > 0 && input.value.trim().length>0){
         checkB.type="checkbox";
         checkB.name = "tick";
+        checkB.value = input.value;
         addElement.appendChild(checkB);
 
-        let node = document.createTextNode(input.value);
+        let node = document.createTextNode(checkB.value);
         input.value = '';
         addElement.appendChild(node);
 
@@ -71,10 +72,40 @@ function sortItems(){
     let para = listAdd.getElementsByTagName("p");
     let checklist = listAdd.getElementsByTagName("input");
     let sorted_list = document.getElementById("sorted_list");
-
-    for (let i = 0; i < para.length; i++){
-        para[i].
+    let temp = ""; 
+    let tempV;
+    let ln = para.length;
+    let counter = 0;
+    // console.log(checklist[0].value);
+    while (counter != ln){
+        for (let i = 0; i < ln; i++){
+            if(temp > checklist[i].value.toLowerCase){
+                console.log(temp);
+                console.log("temp");
+                temp = checklist[i].value.toLowerCase;
+                tempV = i;
+            }
+        }
+        // add
+        for (let i = 0; i < ln; i++){
+            if(temp === checklist[i].value.toLowerCase){
+                counter++;
+                sorted_list.appendChild(para[i]);
+                listAdd.removeChild(para[i]);
+            }
+        }
     }
+}
+    //     // if(sorted_list.length == 0){
+    //     //     sorted_list.appendChild(para[0])
+    //     // }
+    //     // else{
+    //     //     for (let j = 0; j < sorted_list.length; i++){
+    //     //         if(){
+
+    //     //         }
+    //     //     }
+    //     // }
+    // }
     
     // console.log(para[1]);
-}
