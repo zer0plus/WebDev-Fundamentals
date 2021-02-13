@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <!-- 
+    - A textbox to enter a movie ID to retrieve
+    - A button to initiate the retrieval of a movie’s data
+    - Places to display the movie’s title, release year, and runtime
+    - A place to display a list of actors in the movie
+    - A section to displayreviews of the movie
+    - Input elements to allow a user to enter their name, a score for the movie (out of 10) and a text review.
+    - An ‘Add Review’ button 
+    -->
+    <head> 
+        <meta charset="utf-8"/>
+        <title>Movi.es</title>
+        <link rel = "stylesheet" href = "assets/t3.css"/>
+        </head>
+        <body>
+            <h1 class = "movie_name">"Name of the Movie"</h1>
+            <h3 class = "basic_disc"> "Release Year" | "Runtime"  </h3>  
+            <!-- <img src="big-short.jpg" alt="The big short"> -->
+            <input id = "movie_id" placeholder="Enter Movie ID">
+            <br>
+            <button id = "get_data">Get Data</button>
+            <h2 class = "cast_h" style="font-family:courier;"> Cast </h2>
+             <p> 
+                 <ul>
+                     <li>Christian Bale</li>
+                     <li>Ryan Gosling</li>
+                     <li>Rudy Eisenzopf</li>
+                     <li>Hunter Burke</li>
+                     <li>Shauna Rappold</li>
+                     <li>Silas Cooper</li>
+                     <li>Steve Carell</li>
+                     <li>Hunter Burke</li>
+                 </ul>
+                 </p>
+                <br>  
+            <h2 style="font-family:courier; color:Blue">Reviews </h2>
+            Add your personal reviews below!
+            <br>
+            <input id="reviewee_name" placeholder="Enter Name">
+            <input id="reviewee_score" placeholder="Enter Score, 1-10">
+            <br>
+            <textarea id="reviewee_text" placeholder="Enter a text review"></textarea>
+            <br>
+            <button id="add_reviewBtn">Add Review</button>
+            <br>
+            --------------------------------------------------------------------------
+            <p id = "review_body"></p>
+            <script src="t3.js"></script>
+        </body>
+</html> 
