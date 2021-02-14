@@ -1,4 +1,7 @@
 document.getElementById("add_reviewBtn").addEventListener("click", add_review);
+document.getElementById("get_dataBtn").addEventListener("click", loadMovies);
+
+let data_movies = [];
 
 function add_review(){
     let usrName = document.getElementById("reviewee_name").value;
@@ -19,4 +22,29 @@ function add_review(){
     document.getElementById("reviewee_name").value = "";
     document.getElementById("reviewee_score").value = "";
     document.getElementById("reviewee_text").value = "";
+}
+
+function loadMovies(){
+    console.log("sadas");
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        console.log(this.readyState);
+        if (this.readyState == 4 && this.status == 200) {
+            let responseObj = JSON.parse(xhttp.responseText);
+            data_movies = responseObj;
+            console.log(data_movies);
+            render();
+        }
+    }
+    xhttp.open("GET", "http://www.omdbapi.com/?i=tt0167260&apikey=19e2e761", true);
+    xhttp.send();
+}
+
+function render(){
+    let titleTxt = document.getElementById("movie_name");
+    let stuff = "";
+    // data_movies.forEach(data =>{
+	// 	stuff += data.Title;
+	// })
+    titleTxt.innerText += data_movies;
 }
