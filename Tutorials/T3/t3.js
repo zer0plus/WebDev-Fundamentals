@@ -25,6 +25,7 @@ function add_review(){
 }
 
 function loadMovies(){
+    document.getElementById("get_dataBtn")
     console.log("sadas");
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
@@ -42,9 +43,12 @@ function loadMovies(){
 
 function render(){
     let titleTxt = document.getElementById("movie_name");
+    let discTxt = document.getElementById("basic_disc");
     let stuff = "";
     // data_movies.forEach(data =>{
 	// 	stuff += data.Title;
 	// })
-    titleTxt.innerText += data_movies;
+    titleTxt.textContent += data_movies.Title;
+    discTxt.textContent += data_movies.Year + " | " + data_movies.Runtime;
+    console.log(data_movies.Title);
 }

@@ -1,4 +1,4 @@
-.movie_name {
+.Title {
     color: black;
     margin-left: 8.5%;
     text-shadow: 0 1px 0 #ccc,
@@ -14,9 +14,9 @@
                   0 10px 10px rgba(0,0,0,.2),
                   0 20px 20px rgba(0,0,0,.15);
    }
-   .basic_disc {
+   .disc {
        color:rgb(75, 115, 128);
-       margin-left: 10.5%;
+       margin-left: 25%;
    }
 
    img{
