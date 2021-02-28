@@ -20,24 +20,10 @@ function init(){
 	document.getElementById("removeitem").addEventListener("click", removeItem);
 	document.getElementById("highlight").addEventListener("click", highlightItems);
 	document.getElementById("sort").addEventListener("click", sortItems);
-	// let xhttp = new XMLHttpRequest();
-	// xhttp.open("GET", " http://127.0.0.1:3000/list", true);
-    // //'Just gonna send it.' - Larry Enticer
-    // xhttp.send();
+	
 	load_list();
-	// cheez = JSON.parse(cheez);
-	// items.push(cheez);
-	// let xhttp = new XMLHttpRequest();
-    // xhttp.open("GET", "http://127.0.0.1:3000/list", true);
-    // xhttp.send();
-	// console.log(xhttp.response);
-	// iasdastems = JSON.parse(xhttp.response);
-	console.log( "items: "+items);
-	// console.log("Response: " + xhttp.responseText);
-	renderList(); //call function to fill in the list div
+	renderList();
 }
-
-
 
 function load_list(){
 	let xhttp = new XMLHttpRequest();
@@ -45,22 +31,11 @@ function load_list(){
         //If the response is available and was successful
 		console.log(this.readyState);
         if (this.readyState == 4 && this.status == 200) {
-			console.log("funtion start");
-            //Take the response text, parse it into JS object
             items = JSON.parse(xhttp.responseText);
-			console.log("items2:" + items);
-            //Extract items from array and update our array
-            // ans = responseObject.value;
-			// let arrr = [];
-			// arrr.push(ans);
-			// console.log(arrr);
-            //Update our page
-			// return responseObject;
-            // renderList();
+            renderList();
         }
     };
-	//Create the request
-    xhttp.open("GET", "http://127.0.0.1:3000/list", false);
+    xhttp.open("GET", "http://127.0.0.1:3000/list", true);
     //'Just gonna send it.' - Larry Enticer
     xhttp.send();
 }
