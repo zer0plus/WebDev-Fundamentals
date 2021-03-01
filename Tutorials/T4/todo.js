@@ -20,12 +20,13 @@ function init(){
 	document.getElementById("removeitem").addEventListener("click", removeItem);
 	document.getElementById("highlight").addEventListener("click", highlightItems);
 	document.getElementById("sort").addEventListener("click", sortItems);
-	
-	load_list();
+	// load_list();
+	setInterval(load_list, 5000);
 	renderList();
 }
 
 function load_list(){
+	console.log("Loading list");
 	let xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
         //If the response is available and was successful
@@ -58,15 +59,27 @@ function addItem(){
 		return;
 	}
 	
+	let xhttp = new XMLHttpRequest();
+	xhttp.open("POST","http://127.0.0.1:3000/list",true);
 	//If it is not a duplicate
 	if(!isDuplicate(itemName)){
 		//Add a new object to the items array and render
-		items.push({name: itemName, light: false, checked: false});
-		renderList();
+		xhttp.send(JSON.stringify({name: itemName, light: false, checked: false}));
+		xhttp.onreadystatechange = function() {
+			//If the response is available and was successful
+			console.log(this.readyState);
+			if (this.readyState == 4 && this.status == 200) {
+				items.push({name: itemName, light: false, checked: false});
+				renderList();
+			}
+		};
+		
+		
 	}else{
 		alert("Duplicate item names not allowed.");
 	}
 }
+
 
 //Removes selected items
 //Strategy is actually to build a new array of items to keep
@@ -79,7 +92,19 @@ function removeItem(){
 			newItems.push(elem);
 		}
 	});
-	items = newItems;
+	let xhttp = new XMLHttpRequest();
+	xhttp.open("PUT","http://127.0.0.1:3000/list",true);
+	xhttp.send(JSON.stringify(newItems));
+	xhttp.onreadystatechange = function() {
+		//If the response is available and was successful
+		console.log(this.readyState);
+		if (this.readyState == 4 && this.status == 200) {
+			items = newItems;
+			renderList();
+		}
+	};
+
+	
 	renderList();
 }
 
