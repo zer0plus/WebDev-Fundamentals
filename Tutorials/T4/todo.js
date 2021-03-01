@@ -20,13 +20,17 @@ function init(){
 	document.getElementById("removeitem").addEventListener("click", removeItem);
 	document.getElementById("highlight").addEventListener("click", highlightItems);
 	document.getElementById("sort").addEventListener("click", sortItems);
-	// load_list();
+	load_list();
 	setInterval(load_list, 5000);
 	renderList();
 }
 
 function load_list(){
 	console.log("Loading list");
+	// fetch("http://127.0.0.1:3000/list").then(res=>res.json()).then(json=>{
+	// 	items = json;
+	// 	renderList();
+	//   });
 	let xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
         //If the response is available and was successful
