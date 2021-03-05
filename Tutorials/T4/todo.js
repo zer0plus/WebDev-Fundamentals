@@ -62,23 +62,16 @@ function addItem(){
 		alert("You must enter an item name.");
 		return;
 	}
-	
 	let xhttp = new XMLHttpRequest();
 	xhttp.open("POST","http://127.0.0.1:3000/list",true);
-	//If it is not a duplicate
+	xhttp.send(JSON.stringify({name: itemName, light: false, checked: false}));
 	if(!isDuplicate(itemName)){
-		//Add a new object to the items array and render
-		xhttp.send(JSON.stringify({name: itemName, light: false, checked: false}));
 		xhttp.onreadystatechange = function() {
-			//If the response is available and was successful
-			console.log(this.readyState);
 			if (this.readyState == 4 && this.status == 200) {
 				items.push({name: itemName, light: false, checked: false});
 				renderList();
 			}
 		};
-		
-		
 	}else{
 		alert("Duplicate item names not allowed.");
 	}
