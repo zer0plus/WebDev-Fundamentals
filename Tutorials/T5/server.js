@@ -20,7 +20,7 @@ Routes:
 */
 
 const http = require('http');
-
+const pug = require("pug");
 //Set up the required data
 let cardData = require("./cards.json");
 let cards = {}; //Stores all of the cards, key=id
@@ -30,6 +30,11 @@ cardData.forEach(card => {
 
 //Initialize server
 const server = http.createServer(function (request, response) {
+    if (request.method === "GET") {
+        if (request.url === "/" || request.url === "/index.html") {
+            
+        }
+    }
 	response.statusCode = 404;
 	response.write("Unknwn resource.");
 	response.end();
