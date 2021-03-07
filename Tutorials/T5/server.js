@@ -28,16 +28,45 @@ cardData.forEach(card => {
 	cards[card.id] = card;
 });
 
+function send404(response){
+    response.statusCode = 404;
+    response.write("Unknown resource.");
+    response.end();
+}
+
 //Initialize server
 const server = http.createServer(function (request, response) {
     if (request.method === "GET") {
         if (request.url === "/" || request.url === "/index.html") {
+            let data = pug.renderFile("views/index.pug", {theCards : cards});
+            response.statusCode = 200;
+            response.end(data);
+            return;
+        }
+        else if(request.url.startsWith("/cards/")){
+            let url = request.url;
+            url = url.slice(7);
+            // url = "sdfasdfdsa";
             
+            let cardObj;// = cards[url];
+            if (cards.hasOwnProperty(url)) {
+                console.log("YESSSSSSSS");
+                cardObj = cards[url];
+            }
+            else{
+                send404(response);
+                return;
+            }
+
+            let card_data = pug.renderFile("views/cardPage.pug", {theCard : cardObj});
+            response.statusCode = 200;
+            response.end(card_data);
+            return;
         }
     }
-	response.statusCode = 404;
-	response.write("Unknwn resource.");
-	response.end();
+    else{
+    send404(response);
+    }
 });
 
 //Start server
