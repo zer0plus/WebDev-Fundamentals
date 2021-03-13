@@ -1,0 +1,25 @@
+html
+    head
+        title #{theCard.name} - #{theCard.id} 
+    body 
+    div#main
+        h1 CARD - #{theCard.name}!
+        br
+        p ID - #{theCard.id}
+        p Artist - #{theCard.artist} 
+        p Type - #{theCard.type}
+        p Set - #{theCard.set}
+
+        - let rareCount = theCard.rarity
+        if rareCount == "FREE"
+            p Rarity - *
+        else if rareCount == "COMMON"
+            p Rarity - **
+        else if rareCount == "RARE"
+            p Rarity - ***
+        else if rareCount == "EPIC"
+            p Rarity - ****
+        else if rareCount == "LEGENDARY"
+            p Rarity - *****
+        else
+            p Rarity - N/A

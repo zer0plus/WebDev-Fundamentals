@@ -46,21 +46,38 @@ const server = http.createServer(function (request, response) {
         else if(request.url.startsWith("/cards/")){
             let url = request.url;
             url = url.slice(7);
-            // url = "sdfasdfdsa";
+            let cardObj;
             
-            let cardObj;// = cards[url];
             if (cards.hasOwnProperty(url)) {
-                console.log("YESSSSSSSS");
+                // console.log("YESSSSSSSS");
                 cardObj = cards[url];
-            }
+            }   
             else{
                 send404(response);
                 return;
             }
-
             let card_data = pug.renderFile("views/cardPage.pug", {theCard : cardObj});
             response.statusCode = 200;
             response.end(card_data);
+            return;
+        }
+        
+        else if (request.url.startsWith("/cards?")) {
+            let match_arr = {};
+            let url = request.url;
+            url = url.slice(13);
+            console.log(url);
+            cardData.forEach(card =>{
+                 if (card.name.toLowerCase().includes(url.toLowerCase())) {
+                    match_arr[card.id] = card;
+                    //console.log(card.name);
+                    console.log(match_arr[card.id].name);
+                }
+            });
+            
+            let search = pug.renderFile("views/index.pug", {theCards : match_arr});
+            response.statusCode = 200;
+            response.end(search);
             return;
         }
     }

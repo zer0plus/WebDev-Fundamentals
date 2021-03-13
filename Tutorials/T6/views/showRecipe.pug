@@ -1,0 +1,19 @@
+html
+    head
+        title Recipe  #{recipe.id} 
+    body
+        div#main
+            h1(style="text-align:center; color:blue; font-family:Cursive, Brush Script M7, serif;") #{recipe.name}
+            h3(style="text-align:center;") #{recipe.description}
+            //input(type="textbox" id="name")
+            //|  
+            //button(type="button" id="submit") Search
+            p Preparation Time: #{recipe.preptime} minutes
+            p Cooking Time: #{recipe.cooktime} minutes
+            
+            br
+            br
+            h4(style = "font-family:Cursive,Lucida Handwriting, serif;") Ingredients
+            ul(id = "mainList")
+            each ing in recipe.ingredients 
+                li #{ing.name} : #{ing.amount} #{ing.unit}

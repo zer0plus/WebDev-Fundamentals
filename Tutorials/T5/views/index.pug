@@ -1,0 +1,21 @@
+html
+    head
+        title The Cards 
+    body
+        div#main
+            h1 CARDS!
+            input(type="textbox" id="name")
+            |  
+            button(type="button" id="submit") Search
+            br
+            h4 All the Cards: 
+
+            ul(id = "mainList") 
+            - let counter = 0
+            each card in theCards
+                if counter == 25
+                    -break 
+                li: a(href = '/cards/' + card.id) #{card.name} (#{card.id})
+                -counter++
+    script 
+        include read.js

@@ -1,0 +1,17 @@
+html
+    head
+        title Recipe Book 
+    body
+        div#main
+            h1 Recipes
+            //input(type="textbox" id="name")
+            //|  
+            //button(type="button" id="submit") Search
+            br
+            h4 Recipe List:
+
+            ul(id = "mainList")
+            each recipe in data 
+                li: a(href = '/recipes/' + recipe.id) #{recipe.name} (#{recipe.id})
+
+
