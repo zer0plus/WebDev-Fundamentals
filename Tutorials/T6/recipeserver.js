@@ -56,7 +56,6 @@ let database = {
 let keys = Object.keys(database);
 let num = keys.length;
 
-
 const express = require('express');
 let app = express();
 
@@ -101,14 +100,10 @@ app.get("/recipes/:id",function(req,res){
 			res.status(200);
 		
 		}
-		
 	});
 	if(check!=0){
 		res.status(200).send("Wrong ID");}
 })
-
-
-
 
 app.listen(3000);
 console.log("Server listening at http://localhost:3000");
