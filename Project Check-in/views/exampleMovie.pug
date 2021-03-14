@@ -1,0 +1,80 @@
+html 
+    head 
+        Title - MMDB - Example Movie
+    body
+        include ../views/partial/header
+        br
+        h4 The Wolf of Wall Street, 2013 
+            button Add to Watched List
+        //- br
+        p Runtime: 180 minutes
+        p Average Rating: 8/10
+        p Description: Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.
+        p  Genre: 
+            a(href='/searchresults') Biography
+            span    
+            span | 
+            a(href='/searchresults') Crime
+            span   
+            span | 
+            a(href='/searchresults') Drama
+
+        h4 Similar Movies: 
+            br
+            a(href='/movies/exampleMovie') Margin Call 
+            br
+            a(href='/movies/exampleMovie') The Big Short
+            br
+            a(href='/movies/exampleMovie') Boiler Room
+            br
+            a(href='/movies/exampleMovie') Casino
+        
+        h4 Directors:
+            br
+            a(href='/people/exampleperson') Martin Scorsese
+            br
+
+        h4 Writers: 
+            br
+            a(href='/people/exampleperson') Terence Winter 
+            br
+            a(href='/people/exampleperson') Jordan Belfort
+            br
+            
+        h4 Actors: 
+            br
+            a(href='/people/exampleperson') Leonardo DiCaprio
+            br
+            a(href='/people/exampleperson') Jonah Hill
+            br
+            a(href='/people/exampleperson') Margot Robbie
+            br
+            a(href='/people/exampleperson') Matthew McConaughey
+            br
+            a(href='/people/exampleperson') Rob Reiner
+            br
+            a(href='/people/exampleperson') Jon Bernthal
+            br
+            a(href='/people/exampleperson') Jean Dujardin
+            br
+        h4 Reviews: 
+        p 9/10 - Very funny   
+            a(href='/reviews/examplereview')    View Details
+        p 8/10 - Very Interesting    
+            a(href='/reviews/examplereview')    View Details
+
+        h4 Add a review: 
+        p Review Score: 
+            input(type="text", style="width: 35px;")  
+            span   
+            button  Submit basic Review
+        p Review Score: 
+        input(type="text")  
+        p Full Review Text: 
+        textarea(name="", cols="30", rows="10") 
+        button  Submit Review
+
+        
+
+        include ../views/partial/footer
+        
