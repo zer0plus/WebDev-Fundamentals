@@ -1,0 +1,22 @@
+.header{
+    color:white;
+    background-color:rgb(236, 179, 179);
+    width: 22%;
+    font-weight: bold;
+      
+} 
+
+.header a:link{
+    color:rgb(17, 3, 48);
+    text-decoration:none;
+
+}
+.header a:visited{
+    color:rgb(17, 3, 48);
+    text-decoration: none;
+}
+
+.header a:hover{
+    color:rgb(72, 10, 206);
+    text-decoration: underline;
+}

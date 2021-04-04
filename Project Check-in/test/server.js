@@ -19,10 +19,6 @@ app.get("/movies/exampleMovie",function(req,res){
 	res.format({
 		"text/html":() =>{res.render("exampleMovie",{movie : movies["The Champ"]});}
 	});
-	console.log(req.query.name);
-	//if(req.params.name != undefined){
-	//	console.log(req.params.name);
-	console.log(req.query.hello);
 	res.status(200);
 })
 
@@ -90,7 +86,6 @@ app.get("/contribute",function(req,res){
 
 function extractData(){	
 	movies={};
-	//this function will be used to extract data with certain criteria
 	 
 	movieData.forEach(movie => {
 		movies[movie.Title] = movie;

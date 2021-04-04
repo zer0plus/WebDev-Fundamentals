@@ -1,0 +1,26 @@
+html 
+    head 
+        Title MMDB - Results
+    style 
+        include view_css/searchR.css
+    body 
+        include ../views/partial/header
+        div
+            h2(style = "margin-bottom: 0;") Top Search Results:
+            a(href='/movies/exampleMovie') Titanic
+            br
+            a(href='/movies/exampleMovie') The Big Short
+            br
+            a(href='/movies/exampleMovie') Margin Call
+            br
+            a(href='/movies/exampleMovie') Inception
+            br
+            a(href='/movies/exampleMovie') Interstellar
+            br
+            a(href='/movies/exampleMovie') The Wolf of Wall Street
+            br
+            br
+            br
+        a(href='/searchResults' class="nextP") Next Page
+
+        include ../views/partial/footer

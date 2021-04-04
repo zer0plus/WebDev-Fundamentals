@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(245, 217, 166);
+}
+
+input{
+    background: rgb(243, 225, 212);
+}
+
+.input_fName{
+    margin-left: 15px;
+}
+
+.input_lName{
+    margin-left: 17px;
+}
+
+.input_nUsername{
+    margin-left: 22px;
+}
+
+.input_nPassword{
+    margin-left: 25px;
+}
+
+.createU{
+    margin: 0px;
+    background: rgb(240, 140, 140);
+}

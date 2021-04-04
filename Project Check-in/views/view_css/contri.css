@@ -1,0 +1,22 @@
+body{
+    background-color: beige;
+}
+
+h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-bottom: 5px;
+}
+
+p{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.divide
+{
+        padding: 5px 0px 5px 50px
+}
+
+button{
+    background-color: rgb(95, 250, 198);
+    font-weight: bold;
+}

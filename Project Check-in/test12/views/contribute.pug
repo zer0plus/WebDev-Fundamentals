@@ -1,0 +1,37 @@
+html 
+    head 
+        Title MMDB - Contribute 
+    style
+        include view_css/contri.css
+    body 
+        include ../views/partial/header
+        h4(style = "margin-bottom: 0;") Add an Actor
+        p Actor Name: 
+            input(type="text", name="")
+        br
+        button Add Actor
+        br
+        br
+        h4(class= "divide") --OR--
+        h4(style = "margin-bottom: 0;") Add a movie: 
+        p  Title : 
+            input(type="text", name="")
+        p Runtime: 
+            input(type="text", name="")
+        p Release Year: 
+            input(type="text", name="")
+        
+        p Writers: 
+            input(type="text", name="")
+        
+        p Director: 
+            input(type="text", name="")
+        
+        p Actors: 
+            input(type="text", name="")
+
+        br
+        button Add Movie
+        
+
+        include ../views/partial/footer

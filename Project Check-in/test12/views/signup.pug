@@ -1,0 +1,25 @@
+html
+    head
+        title Sign In 
+    style 
+        include view_css/signUp.css
+    body
+        include ../views/partial/header
+        div#main 
+            br
+            p(class="first") Enter First Name:
+                input(type="text",placeholder="First Name",class="input_fName")
+            br
+            p(class="last") Enter Last Name:
+                input(type = "text",placeholder="Last Name",class="input_lName")
+            br
+            p(class="Uname") Enter Username:
+                input(type = "text",placeholder="Username",class="input_nUsername")
+            br
+            p(class="passW") Enter password:
+                input(type = "text",placeholder="New Password",class="input_nPassword")
+            br
+   
+            a(href="/profile/my")
+                button(class="createU",style = "font-family:Cursive,Lucida Handwriting, serif;") Create User
+        include ../views/partial/footer

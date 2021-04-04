@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(41, 1, 1);
+}
+
+h2{
+    color: white;
+}
+
+div a:link{
+    color: wheat;
+    text-decoration: none;
+}
+
+div a:visited{
+    color: wheat;
+    text-decoration: none;
+}
+
+div a:hover{
+    color: rgb(243, 247, 56);
+    text-decoration: underline;
+}
+
+.nextP:link{
+    color: rgb(123, 149, 207);
+    font-weight: bold;
+}
+
+.nextP:visited{
+    color: rgb(111, 130, 218);
+    font-weight: bold;
+}
+
+.nextP:hover
+{
+    color: rgb(161, 241, 208);
+    text-decoration: none;
+    border: 2px solid yellow;
+    padding: 2px 2px 2px 2px;
+}

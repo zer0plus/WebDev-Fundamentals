@@ -1,0 +1,1 @@
+"text/html":() =>{res.render("showRecipes",{data : database});}

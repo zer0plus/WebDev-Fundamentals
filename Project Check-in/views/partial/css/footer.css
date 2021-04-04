@@ -1,0 +1,34 @@
+.footer{
+        background-color: black;
+        color: white;
+        text-align: center;
+
+        bottom: 0;
+        width: 99%; 
+        position: fixed;
+        /* Height of the footer*/  
+        height: 100px; 
+    
+}
+
+.footer a:link{
+    color:rgb(245, 244, 170);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover{
+    color: rgb(226, 133, 245);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footer a:visited{
+    color: rgb(245, 244, 170);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fp{
+    color:white;
+}
