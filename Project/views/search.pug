@@ -1,0 +1,32 @@
+html 
+    head 
+        Title MMDB - Search 
+    style
+        include view_css/sear.css 
+
+
+    body 
+        include ../views/partial/header
+        form(action = "/results", method = "get")
+        p Seach by Title or Genre:     
+            input(id="search", class="search")
+            span     
+            button(id="searchBtn", type = "submit") Search
+            
+        include ../views/partial/footer
+        script
+            include ../views/scripts/search.js
+
+
+
+//- form(action = "/results", method = "get")
+
+//-     p Search by Genre: 
+//-         input(id="genre",class="Genre")
+//-         span     
+//-         button(id="searchBtn", type = "submit") Search
+
+//-     p Search by Actor, director or writer: 
+//-         input(id="actor",class="Actor")   
+//-         span     
+//-         button(id="searchBtn", type = "submit") Search

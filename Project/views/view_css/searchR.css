@@ -1,0 +1,63 @@
+body{
+    background-color: rgb(41, 1, 1);
+}
+
+h2{
+    color: white;
+}
+
+div a:link{
+    color: wheat;
+    text-decoration: none;
+}
+
+div a:visited{
+    color: wheat;
+    text-decoration: none;
+}
+
+div a:hover{
+    color: rgb(243, 247, 56);
+    text-decoration: underline;
+}
+
+
+body a:link{
+    color: rgb(134, 129, 230);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body a:visited{
+    color: rgb(134, 129, 230);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body a:hover{
+    color: rgb(225, 231, 139);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.Pages a:link{
+    color: rgb(231, 230, 247);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Pages a:visited{
+    color: rgb(241, 241, 241);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.Pages a:hover{
+    color: rgb(239, 252, 56);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+p{
+    color: aliceblue;
+}

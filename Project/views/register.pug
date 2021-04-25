@@ -1,0 +1,43 @@
+html
+    head
+        title Register
+    style 
+        include view_css/register.css
+    body
+        include ../views/partial/header
+        form(method = "post", action = "/register")
+            div#main 
+                h1 Register
+
+                br
+                //- p(class="first") Enter First Name:
+                //-     input(type="text",placeholder="First Name",class="input_fName")
+                | Enter First Name:     
+                firstName: <input type="text" placeholder = "First Name" name="firstName" required>
+                br
+                br
+                | Enter Last Name:   
+                lastName: <input type="text" placeholder = "Last Name" name="lastName" required>
+                br
+                br
+                | Enter Username:        
+                username: <input type="text" placeholder = "Username" name="username" required>
+                br
+                br
+                | Enter Password:          
+                password: <input type="password" placeholder = "Password" name="password" required>
+                br
+                br
+                //- p(class="last") Enter Last Name:
+                //-     input(type = "text",placeholder="Last Name",class="input_lName")
+                //- br
+                //- p(class="Uname") Enter Username:
+                //-     input(type = "text",placeholder="Username",class="input_nUsername")
+                //- br
+                //- p(class="passW") Enter password:
+                //-     input(type = "text", placeholder="New Password", class="input_nPassword")
+                
+                //- a(href="/login")
+                button(class="createU",style = "font-family:Cursive,Lucida Handwriting, serif;") Register
+            
+        include ../views/partial/footer

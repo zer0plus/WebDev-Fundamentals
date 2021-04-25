@@ -1,0 +1,40 @@
+html 
+    head 
+        Title MMDB - Contribute 
+    style
+        include view_css/contri.css
+    body
+        include ../views/partial/header
+        if (!accountType)
+            h2 Contributing rights are reserved for contributing user acounts only.
+        else
+            form(method = "post", action = "/contribute")
+                h4(style = "margin-bottom: 0;") Add an Actor:
+                p Actor Name: 
+                    input(type="text", name="actName")
+                br
+                button(name = "contBtn", type = "submit") Add Actor
+
+            h4(class= "divide") --OR--
+            form(method = "put", action = "/contribute")
+                h4(style = "margin-bottom: 0;") Add a movie: 
+                p  Title : 
+                    input(type="text", name="title", id="title", required = true)
+                p  Genre : 
+                    input(type="text", name="genre", id="genre", required = true)
+                p Runtime: 
+                    input(type="text", name="runtime", id="runtime", required = true)
+                p Release Year: 
+                    input(type="text", name="relYear", id="relYear", required = true)
+                p Writers: 
+                    input(type="text", name="Writer", id="Writer", required = true)
+                p Directors: 
+                    input(type="text", name="Director", id="Director", required = true)
+                p Actors: 
+                    input(type="text", name="Actor", id="Actor", required = true)
+                br
+                button(id = "contMovieBtn", type = "submit") Add Movie
+        script
+            include ../views/scripts/contribute.js
+
+        include ../views/partial/footer

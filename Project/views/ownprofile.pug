@@ -1,0 +1,85 @@
+html
+    head
+        title Sign In 
+    
+    style
+        include view_css/profile.css
+    body
+        include ../views/partial/header
+        div(class = "myProfile") 
+            h1(style="text-align:center ;margin-bottom: 1px;") #{person.Name}
+            br
+            h3 Account Type 
+            if(person.Account)
+                form(method = "post", action = "/account")
+                    p(style = "margin-bottom: 0px;") Contributing    
+                        button(style = "font-family: Georgia, serif; background-color:rgb(148,99,99); color:white;",action = "/", method = "post") Change Account Type
+            else
+                form(method = "post", action = "/account")
+                    p(style = "margin-bottom: 0px;") Regular               
+                        button(style = "font-family: Georgia, serif; background-color:rgb(148,99,99); color:white;",action = "/", method = "post") Change Account Type
+
+            br
+            h3 People you follow 
+            - let counter = 0;
+            each follow in person.pFollowing
+                form(method = "post", action = "/people" + "/unfollow/"+follow._id)
+
+                    p(style ="padding-bottom: 0px;")
+                        button Unfollow
+                        a(href="/people/" +follow._id ) #{follow.name}
+                    -counter++
+                br
+            if(counter==0)  
+                p You are not following any People
+
+            br
+            h3 Following
+            -counter=0;
+            each follow in person.uFollowing
+                form(action = "/user/unfollow/"+follow._id, method = "post")
+                    p(style ="padding-bottom: 0px;")
+                        button Unfollow
+                        a(href="/user/" +follow._id ) #{follow.Name}
+                    -counter++
+                br
+            if(counter==0)  
+                p You are not following any Users
+
+            br
+            h3 Movies(watched)
+            - counter = 0;
+            each movie in person.watchList 
+                form(action = "/movies/a/" + movie._id, method = "post")
+                    p   
+                        button remove
+                        a(href="/movies/" + movie._id) #{movie.Title}
+                    - counter++
+            if(counter == 0)
+                p You do not have any movies in your watchlist
+
+            br
+            h3 Movies(Recommended)
+            each movieRec in rec
+                form(action = "/movies/:exampleMovie", method = "post")
+                    p    
+                        a(href="/movies/" + movieRec._id) #{movieRec.Title}
+            //- p   
+            //-     a(href="/movies/exampleMovie") Movie 5
+            //- p   
+            //-     a(href="/movies/exampleMovie") Movie 6
+            //- p   
+            //-     a(href="/movies/exampleMovie") Movie 7
+            //- p   
+            //-     a(href="/movies/exampleMovie") Movie 8
+
+            br
+            h3 Notification 
+            p  Actor is selected for a new movie.  
+                button remove 
+            
+            p Actor refuses to star in a movie. 
+                button remove 
+            
+            p Movie is in production.
+                button remove

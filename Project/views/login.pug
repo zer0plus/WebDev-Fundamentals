@@ -1,0 +1,34 @@
+html
+    head
+        title Login 
+    style 
+        include view_css/login.css
+    body
+        include ../views/partial/header
+        div#main 
+            h1 Login
+            if (check.username == true)
+                if (check.password == false)
+                    p Not authorized. Invalid password.
+                br
+            if (check.username == false)
+                p Not authorized. Invalid Username.
+            form(method = "post", action = "/login")
+                username: <input type="text" placeholder = "Username" name="username" required>
+                br
+                password: <input type="password" placeholder = "Password" name="password" required>
+                br
+                button(type = "submit", class="btn btn-primary", id = "loginBtn") Submit
+
+        br
+        h4 Not a User?
+        a(href="/register")
+            button(class="registerBtn") Register
+        include ../views/partial/footer
+
+//- input(type="text",placeholder="Username",class="usernameField")
+//- br
+//- input(type = "text",placeholder="Password",class="passwordField")
+//- br
+//- a(href="/loggingIn")
+//-     button(class="signInButton") Login

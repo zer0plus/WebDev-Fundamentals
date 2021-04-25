@@ -1,0 +1,37 @@
+html 
+    head 
+        Title MMDB - Results
+    style 
+        include view_css/searchR.css
+    body 
+        include ../views/partial/header
+        div
+            h2(style = "margin-bottom: 0;") Top Search Results:
+            -let check;
+            if (data.length == 0)
+                p  NO RESULTS FOUND 
+                -check=0;
+                
+            else
+                each movie in data
+                    a(href='/movies/'+movie._id) #{movie.Title}
+                    br
+        br
+        if (check!=0)
+            if current > 1
+                - let url = "http://localhost:3000/results?search="+item+"&page=" + (current-1)
+                a(href=url, class="Pages") Previous
+            |
+            |
+            - url = "http://localhost:3000/results?search="+item+"&page=" + (current+1)
+            a(href=url,class="Pages") Next
+        else 
+            if current > 1
+                - let url = "http://localhost:3000/results?search="+item+"&page=" + (current-1)
+                a(href=url, class="Pages") Previous
+            |
+            |
+            - url = "http://localhost:3000/results?search="+item+"&page=" + (current)
+            a(href=url,class="Pages") Next
+
+        include ../views/partial/footer

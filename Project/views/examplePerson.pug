@@ -1,0 +1,76 @@
+html 
+    head 
+        Title MMDB - #{data.name}
+    style
+        include view_css/person.css
+    body 
+        include ../views/partial/header
+
+        br
+        h2 #{data.name}
+            if (following)
+                form(method = "delete", action = "/people/" + data._id + "/unfollow")
+                    button(type = "submit", name = "unfollowPeople", class="unfollow") Unfollow 
+            else
+                form(method = "delete", action = "/people/" + data._id + "/follow")
+                    button(type = "submit", name = "followPeople", class="unfollow") Follow 
+        br 
+        - let counter = 0;
+        //- each d in actors.Actor 
+        //-     -counter++
+
+        h4 Frequent Collaborators
+        each act in actors.Actor
+            if (counter > 4)
+                - break
+            if(act.name != data.name)
+                a(href='/people/'+ act._id) #{act.name}
+                -counter++
+                br
+        each dir in actors.Director
+            if(counter > 4)
+                - break;
+            if(dir.name != data.name)
+                a(href='/people/'+ dir._id) #{dir.name}
+                -counter++
+                br
+        each wrt in actors.Writer
+            if(counter > 4)
+                - break;
+            if(wrt.name != data.name)
+                a(href='/people/'+ wrt._id) #{wrt.name}
+                -counter++
+                br
+        br
+
+        h3 Work History
+
+        - counter = 0;
+        each writer in data.Writer 
+            -counter++
+
+        if(counter!=0)  
+            h4 Writer:
+            each writer in data.Writer 
+                br
+                a(href='/movies/'+ writer._id) #{writer.Title}
+
+        - counter = 0;
+        each director in data.Director 
+            -counter++
+        if(counter!=0) 
+            h4 Director/Producer: 
+            each director in data.Director 
+                br
+                a(href='/movies/'+ director._id) #{director.Title}
+
+        - counter = 0;
+        each actor in data.Actor 
+            -counter++
+        if(counter!=0) 
+            h4 Actor: 
+            each actor in data.Actor 
+                br
+                a(href='/movies/'+ actor._id) #{actor.Title}
+
+        include ../views/partial/footer

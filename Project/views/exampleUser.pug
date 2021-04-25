@@ -1,0 +1,46 @@
+html 
+    head 
+        Title MMDB - #{data.Name}
+    style
+        include view_css/user.css
+    body
+        include ../views/partial/header
+
+        h4 Username: #{data.Name}
+        if (follow == false)
+            form(method = "post", action = "/user/" + data._id + "/unfollow")
+                button(type = "submit", name = "unfollowUser") Unfollow 
+        else 
+            form(method = "post", action = "/user/" + data._id + "/follow")
+                button(type = "submit", name = "unfollowUser") Follow 
+
+        if(data.Account)
+            h5 Account Type: Regular User
+        else
+            h5 Account Type: Contributing User 
+
+        //- button(class="fButton") Follow
+        h4 People #{data.Name} Follows: 
+        - let counter = 0;
+        each follow in data.pFollowing
+            a(href="/people/" +follow._id ) #{follow.name}
+            -counter++
+            br
+        if(counter==0)  
+            p Does not follow any people
+
+        h4 Movies #{data.Name} has watched: 
+        - counter = 0;
+        each watch in data.watchList 
+            a(href="/movies/" +watch._id ) #{watch.Title}
+            -counter++
+            br
+        if(counter == 0)
+            p #{data.Name} has not watched any movies
+
+        br
+        br
+        h4 Reviews written by jupiter123: 
+
+
+    include ../views/partial/footer

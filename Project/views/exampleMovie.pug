@@ -1,0 +1,65 @@
+html 
+    head 
+        Title MMDB -  #{data.Title}
+    style
+        include view_css/movie.css
+    body
+        include ../views/partial/header
+        br
+        h2 #{data.Title}, #{data.Year} 
+            button(class="addToList") Add to Watched List
+
+        p Runtime: #{data.Runtime}
+        p Adult Rating: #{data.Rated}
+        p Plot: #{data.Plot}
+        p Genre: 
+            each genre in data.Genre
+                a(href='/results?search=' + genre + "&page=1") #{genre}
+                span    
+                span | 
+
+        h4 Similar Movies: 
+            br
+            each s in similar 
+                if(s.Title != data.Title)
+                        a(href='/movies/'  + s._id) #{s.Title}
+                        br
+        
+        h4 Directors:
+            br
+            each director in data.Director
+                a(href='/people/'  + director._id) #{director.name}
+                br
+
+        h4 Writers: 
+            br
+            each writer in data.Writer
+                a(href='/people/'  + writer._id) #{writer.name} 
+                br
+            
+        h4 Actors: 
+            br
+            each actor in data.Actor
+                a(href='/people/' + actor._id) #{actor.name}
+                br
+            
+        h4 Reviews:
+            br
+        p 9/10 - Very funny   
+            a(href='/reviews/exampleReview')    View Details
+        p 8/10 - Very Interesting    
+            a(href='/reviews/exampleReview')    View Details
+
+        h4 Add a review: 
+        p Review Score: 
+            input(type="text", class ="score")  
+            span   
+            button  Submit basic Review  
+        p Full Review Text: 
+            input(type ="text" class="r_text") 
+            button  Submit Review
+
+        
+
+        include ../views/partial/footer
+        
