@@ -13,7 +13,7 @@ const faker = require('faker');
 let router = express.Router();
 let nextProductID = 1000;
 
-
+//done well
 //Requests for /products
 //Specify three functions to handle in order
 router.get("/", queryParser);
